@@ -13,7 +13,7 @@
 #include <windows.h>
 #include <time.h>
 #include <stdio.h>
-#include "goodbyedpi.h"
+#include "libtdpi.h"
 #include "dnsredir.h"
 #include "utils/uthash.h"
 

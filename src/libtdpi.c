@@ -13,7 +13,7 @@
 #include <in6addr.h>
 #include <ws2tcpip.h>
 #include "windivert.h"
-#include "goodbyedpi.h"
+#include "libtdpi.h"
 #include "utils/repl_str.h"
 #include "service.h"
 #include "dnsredir.h"
@@ -25,6 +25,7 @@
 WINSOCK_API_LINKAGE INT WSAAPI inet_pton(INT Family, LPCSTR pStringBuf, PVOID pAddr);
 
 #define GOODBYEDPI_VERSION "v0.2.3rc3"
+#define LIBTDPI_VERSION GOODBYEDPI_VERSION
 
 // Exit with failure after waiting 20 seconds (gives user time to read error messages)
 #define die() do { sleep(20); exit(EXIT_FAILURE); } while (0)
@@ -677,11 +678,11 @@ int main(int argc, char *argv[]) {
     if (filter_passive_string == NULL)
         filter_passive_string = strdup(FILTER_PASSIVE_STRING_TEMPLATE);
 
-    printf(
-        "GoodbyeDPI " GOODBYEDPI_VERSION
-        ": Passive DPI blocker and Active DPI circumvention utility\n"
-        "https://github.com/ValdikSS/GoodbyeDPI\n\n"
-    );
+    printf("LibTDPI %s\n", LIBTDPI_VERSION);
+    printf(": Passive DPI blocker and Active DPI circumvention utility\n");
+    printf("https://github.com/tda45/LibTDPI\n\n");
+    printf("Usage: libtdpi [options]\n\n");
+    printf("Options:\n");
 
     if (argc == 1) {
         /* enable mode -9 by default */
@@ -1179,7 +1180,7 @@ int main(int argc, char *argv[]) {
         printf("Debug Exit\n");
         exit(EXIT_SUCCESS);
     }
-    printf("Filter activated, GoodbyeDPI is now running!\n");
+    printf("Filter activated, LibTDPI is now running!\n");
     signal(SIGINT, sigint_handler);
 
     while (1) {

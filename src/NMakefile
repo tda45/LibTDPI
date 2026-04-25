@@ -1,0 +1,18 @@
+# NMAKE için basit derleme dosyası
+CC = cl.exe
+LINK = link.exe
+CFLAGS = /nologo /O2 /MD /I. /I..\..\include
+LIBS = WinDivert.lib ws2_32.lib
+
+OBJS = blackwhitelist.obj dnsredir.obj fakepackets.obj libtdpi.obj service.obj ttltrack.obj getline.obj repl_str.obj
+
+.c.obj:
+	$(CC) $(CFLAGS) /c $< /Fo$@
+
+all: libtdpi.exe
+
+libtdpi.exe: $(OBJS)
+	$(LINK) /nologo /OUT:libtdpi.exe $(OBJS) $(LIBS) /MACHINE:X86
+
+clean:
+	del *.obj libtdpi.exe

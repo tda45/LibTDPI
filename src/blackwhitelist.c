@@ -7,7 +7,7 @@
  */
 #include <windows.h>
 #include <stdio.h>
-#include "goodbyedpi.h"
+#include "libtdpi.h"
 #include "utils/uthash.h"
 #include "utils/getline.h"
 

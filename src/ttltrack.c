@@ -9,7 +9,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <math.h>
-#include "goodbyedpi.h"
+#include "libtdpi.h"
 #include "ttltrack.h"
 #include "utils/uthash.h"
 
